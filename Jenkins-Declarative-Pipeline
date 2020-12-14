@@ -1,8 +1,8 @@
 pipeline{
     agent any
     
-    environment{
-        PATH = "/usr/share/maven/bin:$PATH"
+    tools {
+        maven 'M2_HOME'
     }
     stages{
         stage("Git checkout"){

@@ -1,9 +1,18 @@
 pipeline{
     agent any
+    
+    environment{
+        PATH = "/usr/share/maven/bin:$PATH"
+    }
     stages{
         stage("Git checkout"){
             steps{
-                echo "welcome to declarative pipeline"
+                git 'https://github.com/Arvind3534/myweb.git'
+            }
+        }
+        stage("Maven Build"){
+            steps{
+            sh "mvn clean package"
             }
         }
     }
